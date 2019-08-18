@@ -43,8 +43,8 @@ class carServiceDatabase {
 	 * @param customerLName Customer Last Name
 	 * @return The inserted id, -1 if error happened
 	 */
-	public int insertAppointment(Date appointmentDate, Time timeStart, int price,
-								 String customerName, String customerLName) {
+	public synchronized int insertAppointment(Date appointmentDate, Time timeStart, int price,
+						  String customerName, String customerLName) {
 		
 		// Insert the appointment to database
 		boolean success = insertToDatabase(appointmentDate, timeStart, price,
@@ -64,7 +64,7 @@ class carServiceDatabase {
 	 * @param appointmentID The ID of the appointment to be updated
 	 * @return Whether the update found the appointment ID in the database
 	 */
-	public boolean updateStatus(int appointmentID) {
+	public synchronized boolean updateStatus(int appointmentID) {
 		String query = "UPDATE Appointments \n" + 
 					   "SET status = 'True' \n" + 
 					   "WHERE appointmentID = ?;";
@@ -78,7 +78,7 @@ class carServiceDatabase {
 	 * @param appointmentID The id to be deleted
 	 * @return Whether it was deleted
 	 */
-	public boolean deleteByID(int appointmentID) {
+	public synchronized boolean deleteByID(int appointmentID) {
 		String query = "DELETE FROM Appointments WHERE appointmentID=?";
 	
 		// Delete by ID
@@ -114,7 +114,7 @@ class carServiceDatabase {
 	 * @param customerLName Customer Family Name
 	 * @return The id of the created appointment
 	 */
-	public int scheduleRandomAppointment(Date appointmentDate, int price,
+	public synchronized int scheduleRandomAppointment(Date appointmentDate, int price,
 										 String customerName, String customerLName) {
 		
 		//Generate random time
