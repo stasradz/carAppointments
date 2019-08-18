@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 - - [18/Aug/2019:17:26:00 +0300] "GET /carAppointments/rest/appointments/get/3 HTTP/1.1" 200 175 http-bio-9090-exec-2 1365
+0:0:0:0:0:0:0:1 - - [18/Aug/2019:17:26:13 +0300] "GET /carAppointments/rest/appointments/daterange/2019/8/24/2019/8/29 HTTP/1.1" 200 1352 http-bio-9090-exec-3 540
